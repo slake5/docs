@@ -8,7 +8,8 @@ module.exports = {
             .set('@public', path.join(__dirname, 'public'))
     },
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        toc: { includeLevel: [1, 2] },
     },
     plugins: [
         [
@@ -18,15 +19,20 @@ module.exports = {
                     {
                         id: 'post',
                         dirname: '_posts',
-                        path: '/',
-                        pagination: {
-                            lengthPerPage: 2,
-                        },
+                        path: '/post/',
+                        // itemPermalink: '/post/:year/:month/:day/:slug',
+                        // pagination: {
+                        //     lengthPerPage: 2,
+                        // },
                     }
-                ]
+                ],
+                sitemap: {
+                    hostname: 'https://blog.slake5.com'
+                },
             }
         ]
     ],
+    // theme: '@vuepress/theme-blog',
     themeConfig: {
         sidebar: 'auto', // 侧边栏配置
         sidebarDepth: 2, // 侧边栏显示2级

@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-    title: 'Slake 5 的博客',
+    title: '干货网站',
     description: '帮助开发者的网站',
     chainWebpack(config) {
         config.resolve.alias
@@ -36,5 +36,9 @@ module.exports = {
     themeConfig: {
         sidebar: 'auto', // 侧边栏配置
         sidebarDepth: 2, // 侧边栏显示2级
+        logo: '/favicon.ico',
+        nav: [
+            { text: 'RESUME', link: '/resume/' }
+        ],
     }
 }

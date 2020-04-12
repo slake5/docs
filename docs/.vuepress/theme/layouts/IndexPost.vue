@@ -51,7 +51,6 @@
     @media (max-width: $contentWidth)
       border-left none
 
-
     &--item
       font-size 12px
       font-weight 200

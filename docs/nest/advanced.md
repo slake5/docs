@@ -1,4 +1,4 @@
-# Nest 深入
+# 深入
 
 ## 服务
 
@@ -381,9 +381,9 @@ MongooseModule.forRootAsync({
 
 上面的构造在 MongooseModule中实例化了 MongooseConfigService
 
-### *这个没搞清楚
+### useExisting
 
-useExisting：为现有的提供程序创建别名
+useExisting：使用现有的值，可用来创建别名
 
 ```typescript
 const loggerAliasProvider = {
@@ -391,12 +391,3 @@ const loggerAliasProvider = {
   useExisting: LoggerService,
 }
 ```
-
-
-
-
-
-
-
-
-

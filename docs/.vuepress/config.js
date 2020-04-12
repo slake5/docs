@@ -44,6 +44,7 @@ module.exports = {
       '/nest/': [
         '',
         'advanced',
+        'jwt',
       ]
     },
     summary: true,

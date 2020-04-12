@@ -10,6 +10,11 @@ module.exports = {
     config.resolve.alias
       .set('@public', path.join(__dirname, 'public'))
   },
+  locales: {
+    '/': {
+      lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
+    }
+  },
   markdown: {
     lineNumbers: true,
   },
@@ -47,10 +52,34 @@ module.exports = {
         'jwt',
       ]
     },
+    // sidebar: [
+    //   {
+    //     title: 'Nest',   // 必要的
+    //     path: '/nest/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+    //     // collapsable: false, // 可选的, 默认值是 true,
+    //     sidebarDepth: 4,    // 可选的, 默认值是 1
+    //     children: [
+    //       '/nest/',
+    //       '/nest/advanced',
+    //       '/nest/jwt',
+    //     ]
+    //   },
+    //   {
+    //     title: 'React',   // 必要的
+    //     path: '/react/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+    //     // collapsable: false, // 可选的, 默认值是 true,
+    //     sidebarDepth: 4,    // 可选的, 默认值是 1
+    //     children: [
+    //       '/nest/advanced',
+    //       '/nest/',
+    //       '/nest/jwt',
+    //     ]
+    //   },
+    // ],
     summary: true,
     summaryLength: 100,
     smoothScroll: true,
-    // sidebarDepth: 2, // 侧边栏显示2级
+    sidebarDepth: 2, // 侧边栏显示2级
     lastUpdated: '最后更新',
     // logo: '/favicon.ico',
     nav: [
@@ -61,8 +90,8 @@ module.exports = {
           {
             text: '前端',
             items: [
-              {text: 'React', link: '/react/'},
-              {text: 'Vue', link: '/vue/'},
+              {text: 'React 系列', link: '/react/'},
+              {text: 'Vue 系列', link: '/vue/'},
               {text: 'Typescript', link: '/typescript/'}, // 入门, 深入, 问题
               // {text: 'Egret', link: '/egret/'},
               {text: '移动开发', link: '/mobile/'}, // React Native, umi-app, Weex

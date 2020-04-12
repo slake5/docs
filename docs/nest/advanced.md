@@ -6,16 +6,16 @@
 
 ```typescript
 providers: [
-    {
-        // 令牌
-        provide: CatsService, // 令牌名称
-        useClass: CatsService, // 类提供者
-    },
-    {
-        provide: 'CONNECTION', // 令牌名称
-        useValue: connection, // 值提供者
-    }
-]
+  {
+    // 令牌
+    provide: CatsService, // 令牌名称
+    useClass: CatsService // 类提供者
+  },
+  {
+    provide: "CONNECTION", // 令牌名称
+    useValue: connection // 值提供者
+  }
+];
 ```
 
 #### providers 的使用，用 `@Inject()` 注入(构造函数中注入)
@@ -23,7 +23,7 @@ providers: [
 ```typescript
 @Injectable()
 export class CatsRepository {
-  constructor(@Inject('CONNECTION') connection: Connection) {}
+  constructor(@Inject("CONNECTION") connection: Connection) {}
 }
 ```
 
@@ -33,16 +33,14 @@ export class CatsRepository {
 
 ```typescript
 const configFactory = {
-  provide: 'CONFIG',
+  provide: "CONFIG",
   useFactory: () => {
-    return process.env.NODE_ENV === 'development'
-      ? devConfig
-      : prodConfig;
-  },
+    return process.env.NODE_ENV === "development" ? devConfig : prodConfig;
+  }
 };
 
 @Module({
-  providers: [configFactory],
+  providers: [configFactory]
 })
 export class AppModule {}
 ```
@@ -86,7 +84,7 @@ export class AppModule {}
 - maxCount 可选的数字，定义要接受的最大文件数
 - options: MulterOptions
 
-### 多个文件（全部都是不同的key）
+### 多个文件（全部都是不同的 key）
 
 - FileFieldsInterceptor()
 
@@ -106,7 +104,6 @@ export class AppModule {}
 
 ### 安装依赖
 
-
 #### 注入模块
 
 ```typescript
@@ -124,23 +121,23 @@ entity 建议跟模块文件放在一起
 ```typescript
 @Entity()
 export class Photo {
-    @PrimaryGeneratedColumn()
-    id: number
-    
-    @Column({ length: 500 })
-    name: string
-    
-    @Column('text')
-    description: string
-    
-    @Column()
-    filename: string
-    
-    @Column('int')
-    views: number
-    
-    @Column()
-    isPublished: boolean
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ length: 500 })
+  name: string;
+
+  @Column("text")
+  description: string;
+
+  @Column()
+  filename: string;
+
+  @Column("int")
+  views: number;
+
+  @Column()
+  isPublished: boolean;
 }
 ```
 
@@ -149,17 +146,17 @@ export class Photo {
 这样我们就可以使用 `@InjectRepository` 装饰器将 PhotoRepository 注入到 PhotoService
 
 ```typescript
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Photo } from './photo.entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import { Photo } from "./photo.entity";
 
 @Injectable()
 export class PhotoService {
   constructor(
     // 模块中必须 imports: [TypeOrmModule.forFeature([Photo])] 才可以用 @InjectRepository
     @InjectRepository(Photo)
-    private readonly photoRepository: Repository<Photo>,
+    private readonly photoRepository: Repository<Photo>
   ) {}
 
   findAll(): Promise<Photo[]> {
@@ -171,9 +168,9 @@ export class PhotoService {
 如果其他模块想用存储库，则需要导出其生成的提供程序
 
 ```typescript
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Photo } from './photo.entity';
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { Photo } from "./photo.entity";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Photo])],
@@ -190,12 +187,12 @@ export class PhotoModule {}
 
 ```typescript
 const defaultOptions = {
-  type: 'postgres',
+  type: "postgres",
   port: 5432,
-  username: 'user',
-  password: 'password',
-  database: 'db',
-  synchronize: true,
+  username: "user",
+  password: "password",
+  database: "db",
+  synchronize: true
 };
 
 @Module({
@@ -203,22 +200,22 @@ const defaultOptions = {
     // 链接名为 default
     TypeOrmModule.forRoot({
       ...defaultOptions,
-      host: 'photo_db_host',
-      entities: [Photo],
+      host: "photo_db_host",
+      entities: [Photo]
     }),
     TypeOrmModule.forRoot({
       ...defaultOptions,
-      name: 'personsConnection',
-      host: 'person_db_host',
-      entities: [Person],
+      name: "personsConnection",
+      host: "person_db_host",
+      entities: [Person]
     }),
     TypeOrmModule.forRoot({
       ...defaultOptions,
-      name: 'albumsConnection',
-      host: 'album_db_host',
-      entities: [Album],
-    }),
-  ],
+      name: "albumsConnection",
+      host: "album_db_host",
+      entities: [Album]
+    })
+  ]
 })
 export class AppModule {}
 ```
@@ -232,9 +229,9 @@ export class AppModule {}
   imports: [
     TypeOrmModule.forFeature([Photo]),
     // 第二个参数
-    TypeOrmModule.forFeature([Person], 'personsConnection'),
-    TypeOrmModule.forFeature([Album], 'albumsConnection'),
-  ],
+    TypeOrmModule.forFeature([Person], "personsConnection"),
+    TypeOrmModule.forFeature([Album], "albumsConnection")
+  ]
 })
 export class AppModule {}
 ```
@@ -248,17 +245,17 @@ export class AppModule {}
 @Injectable()
 export class PersonService {
   constructor(
-    @InjectConnection('personsConnection')
+    @InjectConnection("personsConnection")
     private readonly connection: Connection,
-    @InjectEntityManager('personsConnection')
-    private readonly entityManager: EntityManager,
+    @InjectEntityManager("personsConnection")
+    private readonly entityManager: EntityManager
   ) {}
 }
 ```
 
 > 都是在构造函数中实现注入
 
-#### *在工厂模式中注入依赖
+#### \*在工厂模式中注入依赖
 
 ```typescript
 @Module({
@@ -288,25 +285,24 @@ export class PersonService {
 // UserModule
 // AuthModule
 
-import { Module } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { UsersModule } from '../users/users.module';
+import { Module } from "@nestjs/common";
+import { AuthService } from "./auth.service";
+import { UsersModule } from "../users/users.module";
 
 @Module({
   // 导入外部模块 @Module
   imports: [UsersModule],
   providers: [AuthService],
-  exports: [AuthService],
+  exports: [AuthService]
 })
 export class AuthModule {}
-
 ```
 
 #### 动态模块长这样
 
 ```typescript
-import { DynamicModule, Module } from '@nestjs/common';
-import { ConfigService } from './config.service';
+import { DynamicModule, Module } from "@nestjs/common";
+import { ConfigService } from "./config.service";
 
 @Module({})
 export class ConfigModule {
@@ -314,7 +310,7 @@ export class ConfigModule {
     return {
       module: ConfigModule,
       providers: [ConfigService],
-      exports: [ConfigService],
+      exports: [ConfigService]
     };
   }
 }
@@ -325,11 +321,10 @@ export class ConfigModule {
 往 `@Injectable` 传递参数
 
 ```typescript
-import { Injectable, Scope } from '@nestjs/common';
+import { Injectable, Scope } from "@nestjs/common";
 
 @Injectable({ scope: Scope.REQUEST })
 export class CatsService {}
-
 ```
 
 ### JWT 认证
@@ -375,11 +370,11 @@ providers: [
 
 ```typescript
 MongooseModule.forRootAsync({
-  useClass: MongooseConfigService,
+  useClass: MongooseConfigService
 });
 ```
 
-上面的构造在 MongooseModule中实例化了 MongooseConfigService
+上面的构造在 MongooseModule 中实例化了 MongooseConfigService
 
 ### useExisting
 
@@ -387,7 +382,7 @@ useExisting：使用现有的值，可用来创建别名
 
 ```typescript
 const loggerAliasProvider = {
-  provide: 'AliasedLoggerService',
-  useExisting: LoggerService,
-}
+  provide: "AliasedLoggerService",
+  useExisting: LoggerService
+};
 ```

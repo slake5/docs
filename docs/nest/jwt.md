@@ -13,18 +13,17 @@ yarn add @nestjs/jwt
 > auth.middleware.ts
 
 ```ts
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { Request, Response } from 'express'
-import { JwtService } from '@nestjs/jwt';
+import { Injectable, NestMiddleware } from "@nestjs/common";
+import { Request, Response } from "express";
+import { JwtService } from "@nestjs/jwt";
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware<Request, Response> {
-  constructor(private readonly jwtService: JwtService) {
-  }
+  constructor(private readonly jwtService: JwtService) {}
 
   use(req: Request, res: Response, next: () => void): any {
-    console.log(this.jwtService.sign(req.header('auth')))
-    next()
+    console.log(this.jwtService.sign(req.header("auth")));
+    next();
   }
 }
 ```
@@ -40,18 +39,19 @@ export class AuthMiddleware implements NestMiddleware<Request, Response> {
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        secret: configService.getString('SECRET'),
+        secret: configService.getString("SECRET"),
         signOptions: { expiresIn: 10 },
-        verifyOptions: { ignoreExpiration: true },
-      }),
-    }),
-  ],
+        verifyOptions: { ignoreExpiration: true }
+      })
+    })
+  ]
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): any {
-    consumer.apply(AuthMiddleware).exclude('auth/login').forRoutes('auth')
+    consumer
+      .apply(AuthMiddleware)
+      .exclude("auth/login")
+      .forRoutes("auth");
   }
 }
 ```
-
-

@@ -7,17 +7,7 @@ sidebarDepth: 2
 
 ## 技能树
 
-```flow
-st=>start: 开始框
-op=>operation: 处理框
-cond=>condition: 判断框(是或否?)
-sub1=>subroutine: 子流程
-io=>inputoutput: 输入输出框
-e=>end: 结束框
-st(right)->op(right)->cond
-cond(yes)->io(bottom)->e
-cond(no)->sub1(right)->op
-```
+- `Typescript`
 
 ## 项目经历
 
@@ -51,7 +41,7 @@ cond(no)->sub1(right)->op
   <div class="block__item"></div>
   <div class="block__item"></div>
   <div class="block__item"></div>
-</div> 
+</div>
 -->
 
 <script>
@@ -81,4 +71,4 @@ cond(no)->sub1(right)->op
 }
 </style>
 
-### [←回首页](/)
+### [← 回首页](/)

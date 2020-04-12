@@ -31,10 +31,8 @@
 </script>
 
 <style lang="stylus">
-  .simple-pagination
-    a
-      color $textColor
-      border 1px solid $textColor
+  .pagination > li > a
+    border none
 </style>
 
 <style lang="stylus" scoped>

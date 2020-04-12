@@ -63,9 +63,10 @@ module.exports = {
             items: [
               {text: 'React', link: '/react/'},
               {text: 'Vue', link: '/vue/'},
-              {text: 'Typescript', link: '/typescript/'},
-              {text: 'Egret', link: '/egret/'},
-              {text: '移动开发', link: '/mobile/'},
+              {text: 'Typescript', link: '/typescript/'}, // 入门, 深入, 问题
+              // {text: 'Egret', link: '/egret/'},
+              {text: '移动开发', link: '/mobile/'}, // React Native, umi-app, Weex
+              {text: '游戏开发', link: '/game/'}, // egret, threejs
             ],
           },
           {

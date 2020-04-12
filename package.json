@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.9.2",
+    "@vuepress/plugin-medium-zoom": "^1.4.0",
     "@vuepress/theme-blog": "^2.2.0",
     "vuepress": "^1.4.0"
   }

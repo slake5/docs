@@ -1,10 +1,10 @@
 const path = require('path')
 
 module.exports = {
-  title: '助手网',
+  title: 'HBC_技术笔记',
   description: '帮助开发者的网站',
   head: [
-    ['link', {rel: 'shortcut icon', href: '/favicon.ico'}]
+    ['link', {rel: 'shortcut icon', href: '/favicon.ico'}],
   ],
   chainWebpack(config) {
     config.resolve.alias
@@ -12,9 +12,9 @@ module.exports = {
   },
   markdown: {
     lineNumbers: true,
-    // toc: { includeLevel: [2, 3] },
   },
   plugins: [
+    '@vuepress/medium-zoom',
     [
       '@vuepress/blog',
       {
@@ -41,12 +41,12 @@ module.exports = {
     ]
   ],
   themeConfig: {
-    sidebar: {
-      '/group/': [
-        '',
-        'one',
-      ]
-    },
+    // sidebar: {
+    //   '/group/': [
+    //     '',
+    //     'one',
+    //   ]
+    // },
     summary: true,
     summaryLength: 100,
     // sidebarDepth: 2, // 侧边栏显示2级
@@ -61,9 +61,15 @@ module.exports = {
           {text: 'Vue', link: '/vue/'},
         ]
       },
-      {text: '后端', link: '/group/'},
+      // {text: '后端', link: '/group/'},
       {text: '博客', link: '/post/'},
-      {text: 'RESUME', link: '/cv/'},
+      {
+        text: '更多',
+        ariaLabel: '更多下拉菜单',
+        items: [
+          {text: 'CV', link: '/cv/'},
+        ],
+      },
     ],
   },
 }

@@ -1,6 +1,5 @@
 <template>
   <ParentLayout>
-<!--    <ul slot="page-top" class="post">-->
     <ul slot="page-top" class="post theme-default-content content__default">
       <!--<li>
         {{ $pagination }}
@@ -47,12 +46,16 @@
     max-width $contentWidth + $navbar-horizontal-padding
     margin auto
     box-sizing border-box*/
+    border-left 1px solid
     list-style none
+    @media (max-width: $contentWidth)
+      border-left none
+
 
     &--item
       font-size 12px
       font-weight 200
-      margin-top 20px
+      margin-top 16px
       padding-bottom 20px
       border-radius 8px
       border-bottom 1px solid $post-bg-color
@@ -71,7 +74,6 @@
     &__title
       color $textColor
       font-size 24px
-      line-height 1
       font-weight 600
       white-space nowrap
       text-overflow ellipsis

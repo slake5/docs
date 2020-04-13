@@ -50,7 +50,11 @@ module.exports = {
         '',
         'advanced',
         'jwt',
-      ]
+      ],
+      '/typeorm/': [
+        '',
+        'advanced',
+      ],
     },
     // sidebar: [
     //   {

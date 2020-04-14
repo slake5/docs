@@ -4,7 +4,7 @@
 
 ### 例子
 
-```ts
+```ts {5,9}
 import { MigrationInterface, QueryRunner } from "typeorm";
 
 export class PostRefactoringTIMESTAMP implements MigrationInterface {

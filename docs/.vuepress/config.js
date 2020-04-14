@@ -54,6 +54,7 @@ module.exports = {
       '/typeorm/': [
         '',
         'advanced',
+        'apply',
       ],
     },
     // sidebar: [
@@ -94,8 +95,8 @@ module.exports = {
           {
             text: '前端',
             items: [
-              {text: 'React 系列', link: '/react/'},
-              {text: 'Vue 系列', link: '/vue/'},
+              {text: 'React 系列', link: '/react/'}, // 性能优化，hook
+              {text: 'Vue 系列', link: '/vue/'}, // 组件通讯方式，ts 的应用
               {text: 'Typescript', link: '/typescript/'}, // 入门, 深入, 问题
               // {text: 'Egret', link: '/egret/'},
               {text: '移动开发', link: '/mobile/'}, // React Native, umi-app, Weex
@@ -107,7 +108,7 @@ module.exports = {
             items: [
               {text: 'Nest', link: '/nest/'},
               {text: 'TypeOrm', link: '/typeorm/'},
-              {text: 'Serverless', link: '/serverless/'},
+              {text: 'Serverless', link: '/serverless/'}, // 部署 nestjs 应用
             ],
           },
           {

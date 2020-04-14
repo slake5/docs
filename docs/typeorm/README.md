@@ -1,6 +1,6 @@
 # 入门
 
-文档链接 `https://github.com/typeorm/typeorm/blob/master/README-zh_CN.md`
+文档链接 [https://github.com/typeorm/typeorm/blob/master/README-zh_CN.md](https://github.com/typeorm/typeorm/blob/master/README-zh_CN.md)
 
 ## 关系
 

@@ -6,7 +6,7 @@
       <blockquote>{{ getMsg() }}</blockquote>
 
       <RouterLink to="/">
-        Take me home.
+        ← 回首页
       </RouterLink>
     </div>
   </div>

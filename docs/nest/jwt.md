@@ -1,14 +1,13 @@
 # JWT 应用
 
-## 身份认证
 
-### 安装依赖
+## 安装依赖
 
 ```sh
 yarn add @nestjs/jwt
 ```
 
-### 认证中间件（包括依赖注入）
+## 认证中间件（包括依赖注入）
 
 > auth.middleware.ts
 
@@ -28,7 +27,7 @@ export class AuthMiddleware implements NestMiddleware<Request, Response> {
 }
 ```
 
-### 在 Module 模块应用中间件（根模块或者是应用模块）
+## 在 Module 模块应用中间件（根模块或者是应用模块）
 
 > app.module.ts
 

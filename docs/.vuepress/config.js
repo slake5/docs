@@ -62,6 +62,9 @@ module.exports = {
       '/serverless/': [
         '',
       ],
+      '/docker/': [
+        '',
+      ],
     },
     // sidebar: [
     //   {

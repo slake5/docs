@@ -1,0 +1,50 @@
+.container {
+  min-height: 100vh;
+}
+
+.index
+  display flex
+  max-width 450px
+  margin auto
+  padding-top 50px
+  padding-left 88px
+  @media (max-width: $MQMobile)
+    padding-left 0
+
+.index__img {
+  width: 88px;
+  height: 88px;
+}
+.index--content {
+  margin-left: 20px;
+}
+.index--content > * {
+  margin: 0;
+}
+.home__title {
+  font-size: 28px;
+}
+.more {
+  text-align: center;
+  margin-top: 120px;
+}
+.more > * {
+  display: inline-block;
+  padding: 5px 20px;
+  border-radius: 30px;
+  border: 1px solid;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #445e78;
+  user-select: none;
+}
+.more > *:first-child {
+  color: #ffffff;
+  background-color: #000000;
+}
+.more > *:last-child {
+  color: #fff;
+  background-color: silver;
+}
+.more > *:hover {
+}

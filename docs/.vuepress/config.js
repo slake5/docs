@@ -56,6 +56,12 @@ module.exports = {
         'advanced',
         'apply',
       ],
+      '/linux/': [
+        '',
+      ],
+      '/serverless/': [
+        '',
+      ],
     },
     // sidebar: [
     //   {

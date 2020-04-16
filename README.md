@@ -17,7 +17,7 @@
 ### 后端
 
 - [x] Nest
-- [ ] TypeOrm
+- [x] TypeOrm
 - [ ] Serverless
   
 ### 其他
@@ -30,3 +30,7 @@
 
 - [ ] 科学上网(go-proxy)
 - [ ] CI / CD
+
+## 友链
+
+[slake5](https://www.slake5.com)
